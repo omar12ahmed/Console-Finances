@@ -88,43 +88,25 @@ var finances = [
 ];
 
 
-// * The greatest decrease in Profit/Losses (date and amount) over the entire period.
-
-// When you open your code in the browser your resulting analysis should look similar to the following:
-
-//   ```text
-//   Financial Analysis 
-//   ----------------
-//   Total Months: 86
-//   Total: $38382578
-//   Average Change: -2315.12
-//   Greatest Increase in Profits/Losses: Feb-2012 ($1926159)
-//   Greatest Decrease in Profits/Losses: Sep-2013 ($-2196167)
-//   ```
-
-// Your final code should print the analysis to the console.
-
 // Total number of months
-function calculateTotalmonths(finances){
+function calculateTotalmonths(finances) {
   return finances.length
 
 }
 
 const totalMonths = calculateTotalmonths(finances);
-console.log("Total months: "+totalMonths)
-
-
+console.log("Total months: " + totalMonths)
 
 
 
 // Net Total amount of profit and losses of the entire period
-function netAmount(){
-  let total=0;
-  for(let i=0; i<finances.length;i++){
-    total+= finances[i][1]
+function netAmount() {
+  let total = 0;
+  for (let i = 0; i < finances.length; i++) {
+    total += finances[i][1]
   }
-  let netTotal = "$"+total
-  console.log("Net total amount of profit and losses: "+netTotal)
+  let netTotal = "$" + total
+  console.log("Net total amount of profit and losses: " + netTotal)
 }
 
 netAmount()
@@ -132,63 +114,63 @@ netAmount()
 
 
 // The average of the changes in Profit/Losses over the entire period.
-function averageChange(){
-let totalChange = 0;
-let totalMonth = finances.length - 1; 
+function averageChange() {
+  let totalChange = 0;
+  let totalMonth = finances.length - 1;
 
-for (let i = 1; i < finances.length; i++) {
-  let change = finances[i][1] - finances[i - 1][1];
-  
-
-  totalChange += change;
-}
+  for (let i = 1; i < finances.length; i++) {
+    let change = finances[i][1] - finances[i - 1][1];
 
 
-let averageChange = (totalChange / totalMonth).toFixed(2);
-let roundAverageChange= parseFloat(averageChange)
+    totalChange += change;
+  }
 
-console.log(`Average Change: ${roundAverageChange}`);
+
+  let averageChange = (totalChange / totalMonth).toFixed(2);
+  let roundAverageChange = parseFloat(averageChange)
+
+  console.log(`Average Change: ${roundAverageChange}`);
 }
 averageChange()
 
 // The greatest increase in Profit/Losses over the entire period.
 
-function greatestIncrease(){
-let greatestIncrease= 0;
-let greatestMonth = '';
+function greatestIncrease() {
+  let greatestIncrease = 0;
+  let greatestMonth = '';
 
-for (let i =1; i<finances.length;i++){
-  let change = finances[i][1]-finances[i-1][1]
-  
-  if (change>greatestIncrease){
-    greatestIncrease=change;
-    greatestMonth=finances[i][0]
+  for (let i = 1; i < finances.length; i++) {
+    let change = finances[i][1] - finances[i - 1][1]
+
+    if (change > greatestIncrease) {
+      greatestIncrease = change;
+      greatestMonth = finances[i][0]
+    }
   }
-}
-let amount = "$"+greatestIncrease;
-console.log("Greatest increase in profit: "+greatestMonth,amount)
+  let amount = "$" + greatestIncrease;
+  console.log("Greatest increase in profit: " + greatestMonth, amount)
 }
 greatestIncrease()
 
 
 
 // The greatest decrease in Profit/Losses over the entire period.
-function greatestDecrease(){
-  let greatestDecrease= 0;
+function greatestDecrease() {
+  let greatestDecrease = 0;
   let Month = '';
-  
-  for (let i =1; i<finances.length;i++){
-    let change = finances[i][1]-finances[i-1][1]
-    
-    if (change<greatestDecrease){
-      greatestDecrease=change;
-      Month=finances[i][0]
+
+  for (let i = 1; i < finances.length; i++) {
+    let change = finances[i][1] - finances[i - 1][1]
+
+    if (change < greatestDecrease) {
+      greatestDecrease = change;
+      Month = finances[i][0]
     }
   }
-  let amount = "$"+greatestDecrease
-  console.log("Greatest decrease in loses: "+Month,amount)
-  }
-  greatestDecrease()
+  let amount = "$" + greatestDecrease
+  console.log("Greatest decrease in loses: " + Month, amount)
+}
+greatestDecrease()
 
 
 
